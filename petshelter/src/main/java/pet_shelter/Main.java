@@ -1,4 +1,4 @@
-package src;
+package pet_shelter;
 
 public class Main {
     public static void main(String[] args) {
