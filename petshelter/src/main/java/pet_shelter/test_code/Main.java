@@ -1,7 +1,15 @@
 package pet_shelter.test_code;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        try (Scanner scan = new Scanner(System.in)) {
+            System.out.print("Enter Name : ");
+            String name = scan.nextLine();
+            System.out.println("Hello, " + name + "!");
+        }
+
     }
 }
