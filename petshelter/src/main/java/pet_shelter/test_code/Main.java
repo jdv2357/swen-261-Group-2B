@@ -1,4 +1,4 @@
-package pet_shelter;
+package pet_shelter.test_code;
 
 public class Main {
     public static void main(String[] args) {
