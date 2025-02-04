@@ -15,7 +15,7 @@ public class Util {
         try {
             Thread.sleep(ms);
         } catch (InterruptedException e){
-            System.out.println("Interruption in Util.pause_thread()");
+            System.out.println("Interruption in Util.pauseThread()");
         }
     }
 
