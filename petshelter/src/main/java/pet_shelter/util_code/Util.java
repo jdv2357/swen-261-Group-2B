@@ -8,6 +8,13 @@ public class Util {
     }
 
     /**
+     * Returns escape sequence to clear a file or console
+     * */
+    public static String getClearEscapeSeq(){
+        return "\033[H\033[2J";
+    }
+
+    /**
      * Puts current thread to sleep for 'ms' milliseconds
      * @param ms
      * */

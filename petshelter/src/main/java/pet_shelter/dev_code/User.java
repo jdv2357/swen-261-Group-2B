@@ -1,14 +1,13 @@
 class User {
-
-    private static int numUsers = 0;
-    
-    private String uname;
+ 
     private int id;
+    private String uname;
     private UserType type;
     
-    public User (String uname, UserType type){
-        this.id = numUsers;
-        numUsers++;
+    public User(int id, String uname, UserType type){
+        this.id = id;
+        this.uname = uname;
+        this.type = type;
     }
 
 }
