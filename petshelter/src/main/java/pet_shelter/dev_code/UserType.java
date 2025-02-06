@@ -1,11 +1,11 @@
 enum UserType {
 
-    root,
-    admin,
-    contributor,
-    organization,
-    volunteer,
-    error;
+    ROOT,
+    ADMIN,
+    CONTRIBUTOR,
+    ORGANIZATION,
+    VOLUNTEER,
+    ERROR;
 
     /**
      * Return UserType that corresponds to input 'str' as per UserType format
@@ -13,17 +13,17 @@ enum UserType {
     public static UserType fromString(String str){
         switch(str){
             case "r":
-                return root;
+                return ROOT;
             case "a":
-                return admin;
+                return ADMIN;
             case "c":
-                return contributor;
+                return CONTRIBUTOR;
             case "o":
-                return organization;
+                return ORGANIZATION;
             case "v":
-                return volunteer;
+                return VOLUNTEER;
             default:
-                return error;
+                return ERROR;
         }
     }
 
@@ -32,15 +32,15 @@ enum UserType {
      * */
     public String toString(){
         switch(this){
-            case root:
+            case ROOT:
                 return "r";
-            case admin:
+            case ADMIN:
                 return "a";
-            case contrubutor:
+            case CONTRIBUTOR:
                 return "c";
-            case organization:
+            case ORGANIZATION:
                 return "o";
-            case volunteer:
+            case VOLUNTEER:
                 return "v";
            default:
                 return "0";
