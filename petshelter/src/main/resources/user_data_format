@@ -1,0 +1,18 @@
+Data string Format : 
+    
+    id/pword/uname/type/
+
+    where id is integer starting from root user id 10000
+          pword is a String of any length
+          uname is a String of any length
+          type is a String of length 1
+          terminated by a /
+
+Types : 
+    "r" - root
+    "a" - administrator
+    "c" - contributor
+    "o" - organization
+    "v" - volunteer
+
+    
