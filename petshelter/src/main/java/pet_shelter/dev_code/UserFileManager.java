@@ -5,6 +5,8 @@ class UserFileManager{
 
     private static int numDataPoints = 4; //id, pword, uname, type
     private static String path = "../../../resources/data/UserData.txt";
+    private static String separatorOne = "\n";
+    private static String separatorTwo = "~";
 
     private static File file = new File(path); //File containing user data
     private static FileWriter writer;
@@ -17,18 +19,24 @@ class UserFileManager{
      * */
     private static ArrayList<String[]> getData(){
         ArrayList<String[]> data = new ArrayList<>();
+        String dataStr = "";
         try{
             scan = new Scanner(file);
         } catch (FileNotFoundException e){
             System.out.println("Error in UserFileManager.getData()");
         }
         while(scan.hasNextLine()){
-            String[] userData = new String[numDataPoints];
             String line = scan.nextLine();
             if(!line.equals("")){
-                userData = line.split("/");
-                data.add(userData);
+                dataStr += line + separatorOne;
             }
+        }
+        for(String line : dataStr.split(separatorOne)){
+            String[] arr = line.split(separatorTwo);
+            for(int i = 0; i < arr.length; i++){
+                arr[i] = PasswordSecurityManager.decrypt(arr[i]);
+            }
+            data.add(arr);
         }
         scan.close();
         return data;
@@ -44,9 +52,9 @@ class UserFileManager{
             String dataString = "";
             for(String[] userData : data){
                 for(String str : userData){
-                    dataString += str + "/";
+                    dataString += PasswordSecurityManager.encrypt(str) + separatorTwo;
                 }
-                dataString += "\n";
+                dataString += separatorOne;
             }
             screenClearer = new FileWriter(file, false);
             screenClearer.close();
@@ -89,10 +97,12 @@ class UserFileManager{
 
     public static void main(String[] args) throws IOException, FileNotFoundException {
 
-        HashMap<User, String> test = getObjects();
-        System.out.print(test);
-        test.put(new User(10004, "Cameron CO", UserType.ORGANIZATION), "password");
+        HashMap<User, String> test = new HashMap<>();
+        test.put(new User(10000, "root", UserType.ROOT), "12345");
+        test.put(new User(10001, "admin", UserType.ADMIN), "qwerty");
         stoObjects(test);
+        //System.out.println(Arrays.toString(getData().get(0)));
+        System.out.println(getObjects());
 
     }
 
