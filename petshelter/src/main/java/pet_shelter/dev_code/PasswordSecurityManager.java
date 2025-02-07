@@ -11,7 +11,12 @@ class PasswordSecurityManager {
     private static String key;
 
     //Encoding Methods
-    
+   
+    /**
+     * Generates encryption key, encrypts and returns input str, and stores encryption key.
+     * @param String str String to be encrypted
+     * @return String encrypted string
+     **/
     public static String encrypt(String str){
         if(key == null){
             generateKey();
@@ -28,6 +33,11 @@ class PasswordSecurityManager {
         return encrypted;
     }
 
+    /**
+     * Fetches encryption key, decrypts and returns input string
+     * @param String str String to be decrypted
+     * @return String string decrypted string
+     **/
     public static String decrypt(String str){
         if(key == null){
             fetchKey();
@@ -42,6 +52,9 @@ class PasswordSecurityManager {
 
     //Key Methods
 
+    /**
+     * Generates encryption key and stores to file
+     **/
     private static void generateKey(){
         key = "";
         for(int i = 0; i < (int)(Math.random() * 100) + 50; i++){
@@ -52,6 +65,9 @@ class PasswordSecurityManager {
 
     //File Methods
 
+    /**
+     * Stores encryption key to file
+     **/
     private static void stoKey(){
         try {
             FileWriter writer = new FileWriter(file, false);
@@ -64,6 +80,9 @@ class PasswordSecurityManager {
         }
     }
 
+    /**
+     * Fetches encryption key from file and stores to key variable
+     **/
     private static void fetchKey(){
         try {
             Scanner scan = new Scanner(file);
@@ -72,9 +91,10 @@ class PasswordSecurityManager {
             System.out.println("Error in PasswordSecurityManager.fetchKey()");
         }
     }
-
-    //Main
-
+    
+    /**
+     * Main method for PasswordSecurityManager file
+     **/
     public static void main(String[] args){
         String str = "Hello, World!";
         String enc = encrypt(str);
