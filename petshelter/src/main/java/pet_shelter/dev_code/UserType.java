@@ -9,7 +9,7 @@ enum UserType {
 
     /**
      * Return UserType that corresponds to input 'str' as per UserType format
-     * */
+     */
     public static UserType fromString(String str){
         switch(str){
             case "r":
@@ -29,7 +29,7 @@ enum UserType {
 
     /**
      * Return String that corresponds to type as per UserType format
-     * */
+     */
     public String toString(){
         switch(this){
             case ROOT:

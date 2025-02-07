@@ -1,4 +1,5 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 class UserManager {
 
@@ -7,7 +8,7 @@ class UserManager {
 
     /**
      * Gets users and pwords from FileManager
-     * */
+     */
     private static void getData(){
         users = new HashMap<>();
         pwords = new HashMap<>();
@@ -22,7 +23,7 @@ class UserManager {
 
     /**
      * Sends current users and pwords to FileManager to be stored in file
-     * */
+     */
     private static void sendData(){
         HashMap<User, String> usersAndPwords = new HashMap<>();
         for(Integer id : users.keySet()){
@@ -34,6 +35,11 @@ class UserManager {
 
     //Mutators
 
+    /**
+     * Adds a new user to the system
+     * @param user the user to add
+     * @param pword the password to add with the user
+     */
     public static void addUser(User user, String pword){
         if(users == null){
             getData();
@@ -43,6 +49,10 @@ class UserManager {
         sendData();
     }
 
+    /**
+     * Removes a user from the system by the given id
+     * @param id the id of the user to remove
+     */
     public static void removeUser(int id){
         if(users == null){
             getData();
@@ -52,6 +62,10 @@ class UserManager {
         sendData();
     }
 
+    /**
+     * removes a given user from the system
+     * @param user the user to be removed
+     */
     public static void removeUser(User user){
         if(users == null){
             getData();
@@ -65,14 +79,16 @@ class UserManager {
     
     /**
      * Returns unique ID for the purposes of creating a new user
-     * */
+     * @return unique integer ID for creating a new user
+     */
     public static int getNewID(){
         return users.size() + 10001;
     }
    
     /**
      * Returns user assigned to input id, else null
-     * */
+     * @return User associated with input id, else null
+     */
     public static User getUser(int id){
         if(users == null){
             getData();
@@ -82,7 +98,8 @@ class UserManager {
 
     /**
      * Returns user with input uname, else null
-     * */
+     * @return User associated with input name, else null
+     */
     public static User getUser(String uname){
         if(users == null){
             getData();
@@ -97,7 +114,8 @@ class UserManager {
 
     /**
      * Returns ArrayList containing all users
-     * */
+     * @return ArrayList containing all users
+     */
     public static ArrayList<User> getUsers(){
         if(users == null){
             getData();
@@ -111,7 +129,8 @@ class UserManager {
 
     /**
      * Returns ArrayList containing all users of input type
-     * */
+     * @return ArrayList containing all users of input type
+     */
     public static ArrayList<User> getUsers(UserType type){
         if(users == null){
             getData();
@@ -127,7 +146,9 @@ class UserManager {
 
     /**
      * Verifies if input pword matches that of user assigned to input id
-     * @return boolean
+     * @param id input id to be checked
+     * @param pword input password to be checked for the input id
+     * @return boolean of matched input password with input id.
      **/
     public static boolean checkPword(int id, String pword){
         if(pwords == null){
