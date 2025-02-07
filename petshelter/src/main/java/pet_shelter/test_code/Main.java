@@ -9,7 +9,7 @@ public class Main {
             System.out.print("Enter Name : ");
             String name = scan.nextLine();
             System.out.println("Hello, " + name + "!");
-        }
 
+        }
     }
 }
