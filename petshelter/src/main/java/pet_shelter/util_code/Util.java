@@ -2,14 +2,15 @@ public class Util {
 
     /**
      * Clears console screen and returns cursor to top left
-     * */
+     */
     public static void clearConsole(){
         System.out.print("\033[H\033[2J");
     }
 
     /**
      * Returns escape sequence to clear a file or console
-     * */
+     * @return sequence to clear file or console
+     */
     public static String getClearEscapeSeq(){
         return "\033[H\033[2J";
     }
@@ -17,7 +18,7 @@ public class Util {
     /**
      * Puts current thread to sleep for 'ms' milliseconds
      * @param ms
-     * */
+     */
     public static void pauseThread(int ms){
         try {
             Thread.sleep(ms);
@@ -31,7 +32,7 @@ public class Util {
      * Does not print newline character at the end of string
      * @param ms
      * @param text
-     * */
+     */
     public static void bufferText(String text, int ms){
         for(char ch : text.toCharArray()){
             pauseThread(ms);
@@ -40,7 +41,10 @@ public class Util {
     }
 
 
-    //Main method just for testing utility methods
+    /**
+     * Main method just for testing utility methods
+     * @param args command line arguments
+     */
     public static void main(String[] args){
 
         clearConsole();
