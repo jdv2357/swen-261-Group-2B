@@ -111,10 +111,12 @@ class UserFileManager{
     public static void main(String[] args) throws IOException, FileNotFoundException {
 
         HashMap<User, String> test = new HashMap<>();
-        test.put(new User(10000, "root", UserType.ROOT), "12345");
-        test.put(new User(10001, "admin", UserType.ADMIN), "qwerty");
+        test.put(new User(10001, "Cameron", UserType.VOLUNTEER), "12345");
+        test.put(new User(10002, "Shameron", UserType.ROOT), "qwerty");
         stoObjects(test);
         //System.out.println(Arrays.toString(getData().get(0)));
+        Scanner buffer = new Scanner(System.in);
+        buffer.nextLine();
         System.out.println(getObjects());
 
     }
