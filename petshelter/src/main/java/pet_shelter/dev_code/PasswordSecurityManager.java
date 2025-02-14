@@ -1,3 +1,5 @@
+package pet_shelter.dev_code;
+
 import java.io.*;
 import java.util.*;
 
@@ -87,6 +89,7 @@ class PasswordSecurityManager {
         try {
             Scanner scan = new Scanner(file);
             key = scan.nextLine();
+            scan.close();
         } catch (FileNotFoundException e){
             System.out.println("Error in PasswordSecurityManager.fetchKey()");
         }

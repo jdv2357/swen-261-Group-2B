@@ -1,3 +1,5 @@
+package pet_shelter.dev_code;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -117,6 +119,7 @@ class UserFileManager{
         //System.out.println(Arrays.toString(getData().get(0)));
         Scanner buffer = new Scanner(System.in);
         buffer.nextLine();
+        buffer.close();
         System.out.println(getObjects());
 
     }

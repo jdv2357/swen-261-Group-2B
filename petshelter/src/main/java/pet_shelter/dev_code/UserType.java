@@ -1,3 +1,5 @@
+package pet_shelter.dev_code;
+
 enum UserType {
 
     ROOT,

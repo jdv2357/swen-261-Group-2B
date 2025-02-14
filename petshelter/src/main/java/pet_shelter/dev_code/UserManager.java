@@ -1,3 +1,5 @@
+package pet_shelter.dev_code;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -16,7 +18,7 @@ class UserManager {
         for(User user : userData.keySet()){
             int id = user.getID();
             users.put(id, user);
-            pwords.put(id, pwords.get(user));
+            pwords.put(id, userData.get(user));
         }
 
     }
